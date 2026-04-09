@@ -1290,7 +1290,7 @@ const Portfolio = () => {
 
         {/* Projects Section */}
         <section id="projects" className="section">
-          <h2 className="section-title">Projects</h2>
+          <h2 className="section-title">Projects <br/> <small>**Tap on image to view project screenshots**</small></h2>
           <div className="projects-list">
             {projects.map((project) => (
               <div key={project.id} className="project-card">
@@ -1376,7 +1376,7 @@ const Portfolio = () => {
 
         {/* Certificates Section */}
         <section id="certificates" className="section">
-          <h2 className="section-title">Certificates</h2>
+          <h2 className="section-title">Certificates <br/> <small>**Tap on card to view certificate**</small></h2>
           <div className="certificates-grid">
             {certificates.map((cert, idx) => (
               <div
@@ -1397,7 +1397,6 @@ const Portfolio = () => {
               </div>
             ))}
           </div>
-          <h5>*Click certificate to view details*</h5>
         </section>
 
         {/* Contact Section */}

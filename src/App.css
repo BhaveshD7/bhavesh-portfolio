@@ -755,13 +755,22 @@ body {
 }
 
 .section-title {
-  font-size: 42px;
+  font-size: 40px;
   font-weight: 800;
   margin-bottom: 50px;
   color: #1a1a1a;
   position: relative;
   display: inline-block;
   width: 100%;
+}
+
+.section-title small {
+  display: block;
+  font-size: 10px;
+  /* color: #d4af37; */
+  /* margin-top: 8px; */
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .section-title::after {
@@ -832,6 +841,8 @@ body {
 
 .about-content p {
   font-size: 16px;
+  text-align: justify;
+  text-align-last: left;
   color: #666;
   line-height: 1.9;
   font-weight: 400;
