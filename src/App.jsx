@@ -1090,7 +1090,6 @@ const Portfolio = () => {
       image: ''
     },
   ];
-
   // ============ CERTIFICATES DATA ============
   const certificates = [
     {
@@ -1117,7 +1116,16 @@ const Portfolio = () => {
 
   return (
     <div className="portfolio-container">
-      {/* Sidebar Overlay */}
+      {/* Mobile Menu Button */}
+      <button
+        className="mobile-menu-btn"
+        onClick={() => setSidebarOpen(!sidebarOpen)}
+        title="Toggle menu"
+      >
+        ☰
+      </button>
+
+      {/* Sidebar Overlay for Mobile */}
       {sidebarOpen && (
         <div
           className="sidebar-overlay"
@@ -1409,6 +1417,11 @@ const Portfolio = () => {
               </div>
 
               <div className="info-item">
+                <span className="info-label">Phone</span>
+                <p>+91 9868647096</p>
+              </div>
+
+              <div className="info-item">
                 <span className="info-label">Location</span>
                 <p>Delhi, India</p>
               </div>
@@ -1483,3 +1496,396 @@ const Portfolio = () => {
 };
 
 export default Portfolio;
+
+//   // ============ CERTIFICATES DATA ============
+//   const certificates = [
+//     {
+//       title: 'AI/ML using python',
+//       issuer: 'SMSDUCAT2025- 0218',
+//       year: 'Aug 2025',
+//     },
+//     {
+//       title: ' CodeSpark - Role-based attendance analyzer',
+//       issuer: ' IITM Janakpuri',
+//       year: 'May 2025',
+//     },
+//     {
+//       title: 'Smart India Hackathon 2025 - College Finalist',
+//       issuer: 'IITM Janakpuri',
+//       year: 'Sept. 2025',
+//     },
+//     {
+//       title: 'Mern Stack Development',
+//       issuer: 'IITM Janakpuri',
+//       year: 'Jan 2025',
+//     }
+//   ];
+
+//   return (
+//     <div className="portfolio-container">
+//       {/* Sidebar Overlay */}
+//       {sidebarOpen && (
+//         <div
+//           className="sidebar-overlay"
+//           onClick={() => setSidebarOpen(false)}
+//         ></div>
+//       )}
+
+//       {/* Left Sidebar */}
+//       <nav className={`sidebar ${sidebarOpen ? 'open' : ''}`}>
+//         <div className="sidebar-content">
+//           {navItems.map((item) => (
+//             <button
+//               key={item.id}
+//               className="nav-item"
+//               onClick={() => scrollToSection(item.id)}
+//               title={item.label}
+//             >
+//               <span className="nav-icon"><img src={item.icon} alt={item.label} /></span>
+//               <span className="nav-label">{item.label}</span>
+//             </button>
+//           ))}
+//         </div>
+//       </nav>
+
+//       {/* Main Content */}
+//       <main className={`main-content ${sidebarOpen ? 'sidebar-open' : ''}`}>
+//         {/* Hero Section */}
+//         <section id="hero" className="hero">
+//           <div className="hero-content">
+//             <p className="hero-title">Welcome To My Porfolio.</p>
+//             <h1 className="hero-name">Hi, I'm Bhavesh</h1>
+//             <p className="hero-title">A Full Stack Developer & AI/ML Enthusiast</p>
+//             <p className="hero-subtitle">MERN Stack | PERN | AI-Powered Applications</p>
+
+//             {/* ========== RESUME SECTION ========== */}
+//             <div className="resume-section">
+//               <div className="resume-actions">
+//                 <button
+//                   className="resume-btn download-btn"
+//                   onClick={downloadResume}
+//                   title="Download your resume"
+//                 >
+//                   Download Resume
+//                 </button>
+//                 <button
+//                   className="resume-btn preview-btn"
+//                   onClick={openResumePreview}
+//                   title="Preview your resume"
+//                 >
+//                   Preview
+//                 </button>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+
+//         {/* Resume Preview Modal */}
+//         {resumePreviewOpen && (
+//           <div className="modal-overlay" onClick={() => setResumePreviewOpen(false)}>
+//             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+//               <button
+//                 className="modal-close"
+//                 onClick={() => setResumePreviewOpen(false)}
+//               >
+//                 ✕
+//               </button>
+//               <h3 className="modal-title">Resume Preview</h3>
+//               <iframe
+//                 src={resume}
+//                 className="resume-preview"
+//                 title="Resume Preview"
+//               ></iframe>
+//             </div>
+//           </div>
+//         )}
+
+//         {/* Project Gallery Modal */}
+//         {projectGalleryOpen && (
+//           <div className="modal-overlay" onClick={() => setProjectGalleryOpen(false)}>
+//             <div className="modal-content gallery-modal" onClick={(e) => e.stopPropagation()}>
+//               <button
+//                 className="modal-close"
+//                 onClick={() => setProjectGalleryOpen(false)}
+//               >
+//                 ✕
+//               </button>
+//               <h3 className="modal-title">Project Gallery</h3>
+//               <div className="gallery-container">
+//                 <button
+//                   className="gallery-nav-btn prev"
+//                   onClick={previousImage}
+//                   title="Previous image"
+//                 >
+//                   ❮
+//                 </button>
+
+//                 <img
+//                   src={selectedProjectImages[currentImageIndex]}
+//                   alt={`Project Screenshot ${currentImageIndex + 1}`}
+//                   className="gallery-image"
+//                 />
+
+//                 <button
+//                   className="gallery-nav-btn next"
+//                   onClick={nextImage}
+//                   title="Next image"
+//                 >
+//                   ❯
+//                 </button>
+//               </div>
+
+//               <div className="gallery-counter">
+//                 Image {currentImageIndex + 1} of {selectedProjectImages.length}
+//               </div>
+
+//               <div className="gallery-thumbnails">
+//                 {selectedProjectImages.map((img, idx) => (
+//                   <img
+//                     key={idx}
+//                     src={img}
+//                     alt={`Thumbnail ${idx + 1}`}
+//                     className={`thumbnail ${idx === currentImageIndex ? 'active' : ''}`}
+//                     onClick={() => setCurrentImageIndex(idx)}
+//                   />
+//                 ))}
+//               </div>
+//             </div>
+//           </div>
+//         )}
+
+//         {/* Certificate Preview Modal */}
+//         {certificatePreviewOpen && (
+//           <div className="modal-overlay" onClick={() => setCertificatePreviewOpen(false)}>
+//             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+//               <button
+//                 className="modal-close"
+//                 onClick={() => setCertificatePreviewOpen(false)}
+//               >
+//                 ✕
+//               </button>
+//               <h3 className="modal-title">Certificate</h3>
+//               <img
+//                 src={selectedCertificateImage}
+//                 alt="Certificate Preview"
+//                 className="certificate-preview-img"
+//               />
+//             </div>
+//           </div>
+//         )}
+
+//         {/* About Section */}
+//         <section id="about" className="section">
+//           <h2 className="section-title">About Me</h2>
+//           <div className="about-content">
+//             <p>I'm a full-stack developer with college project experience building web applications using the MERN stack (React, Node.js, Express, MongoDB). I started by building educational platforms and e-commerce solutions, then evolved into AI/ML integration, developing intelligent systems like emergency response chatbots with real-time capabilities.</p>
+
+//             <p>My strength lies in bridging frontend and backend seamlessly — I don't just build interfaces, I architect complete systems from database design to deployment. I'm proficient in Python, JavaScript, Django, and emerging tools like Vercel AI SDK. More importantly, I approach every problem with a user-first mindset and a passion for clean, scalable code.</p>
+
+//             <p>Currently, I'm pursuing my Master's in Computer Applications (MCA) at GGSIPU while leading AI/ML projects and mentoring junior developers. I'm excited about the convergence of AI and web development — building applications that don't just work, but think. When I'm not coding, you'll find me exploring AI papers, competing in hackathons, or gathering knowledge form the developer community.</p>
+//           </div>
+//         </section>
+
+//         {/* Projects Section */}
+//         <section id="projects" className="section">
+//           <h2 className="section-title">Projects</h2>
+//           <div className="projects-list">
+//             {projects.map((project) => (
+//               <div key={project.id} className="project-card">
+//                 {/* PROJECT IMAGES WITH GALLERY VIEW BUTTON */}
+//                 <div className="project-image-container">
+//                   {projectImages[project.id] && projectImages[project.id].length > 0 ? (
+//                     <>
+//                       <img
+//                         src={projectImages[project.id][0]}
+//                         alt={project.title}
+//                         className="project-image-uploaded"
+//                       />
+//                       <button
+//                         className="view-image-btn"
+//                         onClick={() => openProjectGallery(project.id)}
+//                         title="View all project screenshots"
+//                       >
+//                         👁️ View Gallery ({projectImages[project.id].length})
+//                       </button>
+//                     </>
+//                   ) : (
+//                     <div className="project-image">{project.image}</div>
+//                   )}
+//                 </div>
+
+//                 <div className="project-content">
+//                   <h3 className="project-title">{project.title}</h3>
+//                   <p className="project-description">{project.description}</p>
+//                   <div className="project-tags">
+//                     {project.tags.map((tag, idx) => (
+//                       <span key={idx} className="tag">{tag}</span>
+//                     ))}
+//                   </div>
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+//         </section>
+
+//         {/* Skills Section */}
+//         <section id="skills" className="section">
+//           <h2 className="section-title">Skills</h2>
+//           <div className="skills-grid">
+//             <div className="skill-category">
+//               <h4>Languages</h4>
+//               <div className="skill-list">
+//                 <span className="skill">Python</span>
+//                 <span className="skill">JavaScript</span>
+//                 <span className="skill">TypeScript (intermediate)</span>
+//                 <span className="skill">SQL</span>
+//               </div>
+//             </div>
+
+//             <div className="skill-category">
+//               <h4>ML & AI</h4>
+//               <div className="skill-list">
+//                 <span className="skill">PyTorch</span>
+//                 <span className="skill">TensorFlow (intermediate)</span>
+//                 <span className="skill">Scikit-Learn (intermediate)</span>
+//                 <span className="skill">Vercel AI SDK</span>
+//               </div>
+//             </div>
+
+//             <div className="skill-category">
+//               <h4>Web & Backend</h4>
+//               <div className="skill-list">
+//                 <span className="skill">React</span>
+//                 <span className="skill">Node.js</span>
+//                 <span className="skill">Django</span>
+//               </div>
+//             </div>
+
+//             <div className="skill-category">
+//               <h4>Databases & Tools</h4>
+//               <div className="skill-list">
+//                 <span className="skill">PostgreSQL(intermediate)</span>
+//                 <span className="skill">MongoDB</span>
+//                 <span className="skill">Cloudinary</span>
+//               </div>
+//             </div>
+//           </div>
+//         </section>
+
+//         {/* Certificates Section */}
+//         <section id="certificates" className="section">
+//           <h2 className="section-title">Certificates</h2>
+//           <div className="certificates-grid">
+//             {certificates.map((cert, idx) => (
+//               <div
+//                 key={idx}
+//                 className="certificate-card"
+//                 onClick={() => openCertificateImage(idx)}
+//                 style={{ cursor: 'pointer' }}
+//               >
+//                 <div className="cert-image-placeholder">{cert.image}</div>
+//                 <div className="cert-content">
+//                   <h3 className="cert-title">{cert.title}</h3>
+//                   <p className="cert-issuer">{cert.issuer}</p>
+//                   <p className="cert-year">{cert.year}</p>
+//                 </div>
+//                 <div className="cert-view-overlay">
+//                   👁️ Click to View
+//                 </div>
+//               </div>
+//             ))}
+//           </div>
+//           <h5>*Click certificate to view details*</h5>
+//         </section>
+
+//         {/* Contact Section */}
+//         <section id="contact" className="section">
+//           <h2 className="section-title">Contact Me</h2>
+//           <div className="contact-container">
+//             {/* CONTACT INFO - BLURRED UNTIL FORM FILLED */}
+//             <div className={`contact-info ${!isFormFilled ? 'contact-blur' : 'contact-visible'}`}>
+//               {!isFormFilled && (
+//                 <div className="blur-message">
+//                   ✨ Fill the form first! ✨
+//                 </div>
+//               )}
+//               <div className="info-item">
+//                 <span className="info-label">Email</span>
+//                 <a href="mailto:bhaveshdhiman40@gmail.com">bhaveshdhiman40@gmail.com</a>
+//               </div>
+
+//               <div className="info-item">
+//                 <span className="info-label">Location</span>
+//                 <p>Delhi, India</p>
+//               </div>
+
+//               <div className="info-item">
+//                 <span className="info-label">Social</span>
+//                 <div className="social-links">
+//                   <a href="https://linkedin.com/in/bhavesh-wtv07/" className="social-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+//                   <a href="https://github.com/BhaveshD7" className="social-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+//                 </div>
+//               </div>
+//             </div>
+
+//             {/* CONTACT FORM */}
+//             <form className="contact-form" onSubmit={handleFormSubmit}>
+//               <input
+//                 type="text"
+//                 name="name"
+//                 placeholder="Your Name"
+//                 value={formData.name}
+//                 onChange={handleFormChange}
+//                 required
+//               />
+//               <input
+//                 type="email"
+//                 name="email"
+//                 placeholder="Your Email"
+//                 value={formData.email}
+//                 onChange={handleFormChange}
+//                 required
+//               />
+//               <input
+//                 type="text"
+//                 name="subject"
+//                 placeholder="Subject"
+//                 value={formData.subject}
+//                 onChange={handleFormChange}
+//                 required
+//               />
+//               <textarea
+//                 name="message"
+//                 placeholder="Message"
+//                 rows="5"
+//                 maxLength="500"
+//                 value={formData.message}
+//                 onChange={handleFormChange}
+//                 required
+//               ></textarea>
+//               <button
+//                 type="submit"
+//                 className="submit-btn"
+//                 disabled={!isFormFilled}
+//                 title={!isFormFilled ? "Fill all fields to submit" : "Send message"}
+//               >
+//                 {isFormFilled ? '✉️ Send Message' : '⏳ Fill Form First'}
+//               </button>
+//             </form>
+//           </div>
+//         </section>
+
+//         {/* Footer */}
+//         <footer className="footer">
+//           <p>&copy; 2024 Bhavesh Dhiman. All rights reserved.</p>
+//           <div className="footer-links">
+//             <a href="#">Privacy Policy</a>
+//             <a href="#">Terms of Service</a>
+//           </div>
+//         </footer>
+//       </main>
+//     </div>
+//   );
+// };
+
+// export default Portfolio;
