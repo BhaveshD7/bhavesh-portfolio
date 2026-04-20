@@ -1376,7 +1376,7 @@ const Portfolio = () => {
 
         {/* Certificates Section */}
         <section id="certificates" className="section">
-          <h2 className="section-title">Certificates <br/> <small>**Tap on card to view certificate**</small></h2>
+          <h2 className="section-title">Certificates <br/> <small>*Tap on card to view certificate*</small></h2>
           <div className="certificates-grid">
             {certificates.map((cert, idx) => (
               <div
